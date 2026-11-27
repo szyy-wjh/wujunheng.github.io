@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>北京各行政区房租可视化分析</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v6/echarts.min.js"></script>
+
+    
+</head>
+<body ><style>*{box-sizing:border-box}body{margin:0!important;background:#f4f7fb!important;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif}.header{padding:38px 6%;background:#fff;border-bottom:1px solid #e5e7eb}.header h1{margin:0;font-size:30px}.header .en{margin-top:6px;color:#64748b}.header p{margin:16px 0 0;color:#64748b}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:24px 6%}.metric,.chart-card,.conclusion-card,.recommend-card{background:#fff;border:1px solid #edf2f7;border-radius:16px;box-shadow:0 4px 20px rgba(15,23,42,.06)}.metric{padding:20px}.metric strong{display:block;font-size:25px;margin-bottom:8px}.metric span{font-size:13px;color:#64748b}.container{width:90%;margin:0 auto 40px}.analysis-row{display:grid;grid-template-columns:minmax(0,2.15fr) minmax(300px,.85fr);gap:18px;margin-bottom:22px}.chart-card{padding:12px;overflow:hidden}.chart-container{width:100%!important;margin:0!important}.conclusion-card{position:relative;padding:30px;display:flex;flex-direction:column;justify-content:center}.number{position:absolute;right:22px;top:14px;font-size:46px;font-weight:800;color:#eef2f7}.conclusion-card h3{margin:0 0 22px}.conclusion-card h3 span{display:block;color:#94a3b8;font-size:11px;font-weight:400}.cn-title,.en-title{font-size:13px;font-weight:700;color:#2563eb;margin-bottom:8px}.en-title{color:#7c3aed}.conclusion-card p{margin:0;line-height:1.9;font-size:14px;color:#334155}.line{height:1px;background:#e5e7eb;margin:20px 0}.final-section{width:90%;margin:55px auto 45px}.final-title{text-align:center;margin-bottom:28px}.final-title h2{margin:0;font-size:30px}.final-title p{color:#94a3b8}.recommend-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.recommend-card{padding:26px;border-top:5px solid #3b82f6}.recommend-card.premium{border-top-color:#f59e0b}.recommend-card.budget{border-top-color:#14b8a6}.recommend-card h3{font-size:23px;margin:16px 0 8px}.recommend-card p{color:#64748b;line-height:1.8}.final-summary{margin-top:25px;background:linear-gradient(135deg,#172033,#273753);border-radius:20px;padding:30px 34px;color:#d9e2ef}.final-summary h3{margin-top:0;color:#fff}.final-summary p{line-height:1.9;margin-bottom:0}footer{text-align:center;padding:0 0 32px;color:#94a3b8;font-size:12px}@media(max-width:1000px){.summary{grid-template-columns:repeat(2,1fr)}.analysis-row,.recommend-list{grid-template-columns:1fr}}@media(max-width:600px){.summary{grid-template-columns:1fr}.container,.final-section{width:94%}}</style><header class="header"><h1>北京各行政区房租分析</h1><div class="en">Beijing District Rental Analysis</div><p>仅使用“北京各区租金”工作表，比较行政区平均房租、环比变化和租金梯度。</p></header><section class="summary"><div class="metric"><strong>15</strong><span>行政区数量</span></div><div class="metric"><strong>74.31</strong><span>区级均值 / 元·月·㎡</span></div><div class="metric"><strong>西城区</strong><span>最高租金区域</span></div><div class="metric"><strong>延庆区</strong><span>最低租金区域</span></div></section><main class="container" id="analysis-container"></main>
+    <style>.box { justify-content:center; display:flex; flex-wrap:wrap;  } </style>
+    <div class="box">
+                <div id="e67eab34d1f6470fa32bcde94d0f706a" class="chart-container" style="width:900px; height:520px; "></div>
+    <script>
+        var chart_e67eab34d1f6470fa32bcde94d0f706a = echarts.init(
+            document.getElementById('e67eab34d1f6470fa32bcde94d0f706a'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_e67eab34d1f6470fa32bcde94d0f706a = {
+    "backgroundColor": "#FFFFFF",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u5e73\u5747\u623f\u79df",
+            "legendHoverLink": true,
+            "data": [
+                20.81,
+                25.11,
+                31.5,
+                46.93,
+                52.79,
+                54.27,
+                59.3,
+                62.29,
+                78.59,
+                84.6,
+                91.13,
+                110.91,
+                126.74,
+                127.7,
+                141.93
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "right",
+                "margin": 8,
+                "formatter": "{c}",
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u5e73\u5747\u623f\u79df"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "axis",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "\u5143/\u6708/\u33a1",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "\u5ef6\u5e86\u533a",
+                "\u5bc6\u4e91\u533a",
+                "\u6000\u67d4\u533a",
+                "\u623f\u5c71\u533a",
+                "\u95e8\u5934\u6c9f\u533a",
+                "\u987a\u4e49\u533a",
+                "\u901a\u5dde\u533a",
+                "\u5927\u5174\u533a",
+                "\u660c\u5e73\u533a",
+                "\u77f3\u666f\u5c71\u533a",
+                "\u4e30\u53f0\u533a",
+                "\u671d\u9633\u533a",
+                "\u4e1c\u57ce\u533a",
+                "\u6d77\u6dc0\u533a",
+                "\u897f\u57ce\u533a"
+            ]
+        }
+    ],
+    "color": [
+        "#3B82F6"
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5317\u4eac\u5404\u884c\u653f\u533a\u5e73\u5747\u623f\u79df\u6392\u884c",
+            "target": "blank",
+            "subtext": "\u5355\u4f4d\uff1a\u5143/\u6708/\u33a1",
+            "subtarget": "blank",
+            "left": "3%",
+            "top": "3%",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1F2937",
+                "fontSize": 18,
+                "richInheritPlainLabel": true
+            },
+            "subtextStyle": {
+                "color": "#94A3B8",
+                "fontSize": 11,
+                "richInheritPlainLabel": true
+            }
+        }
+    ]
+};
+        chart_e67eab34d1f6470fa32bcde94d0f706a.setOption(option_e67eab34d1f6470fa32bcde94d0f706a);
+    </script>
+<br/>                <div id="fc64f1ec0c774deb891355a505a42e30" class="chart-container" style="width:900px; height:520px; "></div>
+    <script>
+        var chart_fc64f1ec0c774deb891355a505a42e30 = echarts.init(
+            document.getElementById('fc64f1ec0c774deb891355a505a42e30'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_fc64f1ec0c774deb891355a505a42e30 = {
+    "backgroundColor": "#FFFFFF",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u73af\u6bd4\u6da8\u8dcc\u5e45",
+            "legendHoverLink": true,
+            "data": [
+                {
+                    "name": "\u5ef6\u5e86\u533a",
+                    "value": -4.19,
+                    "itemStyle": {
+                        "color": "#EF6C78"
+                    }
+                },
+                {
+                    "name": "\u6000\u67d4\u533a",
+                    "value": -3.19,
+                    "itemStyle": {
+                        "color": "#EF6C78"
+                    }
+                },
+                {
+                    "name": "\u660c\u5e73\u533a",
+                    "value": -2.31,
+                    "itemStyle": {
+                        "color": "#EF6C78"
+                    }
+                },
+                {
+                    "name": "\u623f\u5c71\u533a",
+                    "value": -1.54,
+                    "itemStyle": {
+                        "color": "#EF6C78"
+                    }
+                },
+                {
+                    "name": "\u5bc6\u4e91\u533a",
+                    "value": -0.76,
+                    "itemStyle": {
+                        "color": "#EF6C78"
+                    }
+                },
+                {
+                    "name": "\u671d\u9633\u533a",
+                    "value": 0.75,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u6d77\u6dc0\u533a",
+                    "value": 1.06,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u77f3\u666f\u5c71\u533a",
+                    "value": 1.2,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u5927\u5174\u533a",
+                    "value": 1.2,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u897f\u57ce\u533a",
+                    "value": 1.64,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u4e30\u53f0\u533a",
+                    "value": 1.64,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u4e1c\u57ce\u533a",
+                    "value": 1.67,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u901a\u5dde\u533a",
+                    "value": 1.77,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u987a\u4e49\u533a",
+                    "value": 3.11,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                },
+                {
+                    "name": "\u95e8\u5934\u6c9f\u533a",
+                    "value": 5.0,
+                    "itemStyle": {
+                        "color": "#14B8A6"
+                    }
+                }
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "right",
+                "margin": 8,
+                "formatter": "{c}%",
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u73af\u6bd4\u6da8\u8dcc\u5e45"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "axis",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "%",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "\u5ef6\u5e86\u533a",
+                "\u6000\u67d4\u533a",
+                "\u660c\u5e73\u533a",
+                "\u623f\u5c71\u533a",
+                "\u5bc6\u4e91\u533a",
+                "\u671d\u9633\u533a",
+                "\u6d77\u6dc0\u533a",
+                "\u77f3\u666f\u5c71\u533a",
+                "\u5927\u5174\u533a",
+                "\u897f\u57ce\u533a",
+                "\u4e30\u53f0\u533a",
+                "\u4e1c\u57ce\u533a",
+                "\u901a\u5dde\u533a",
+                "\u987a\u4e49\u533a",
+                "\u95e8\u5934\u6c9f\u533a"
+            ]
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5317\u4eac\u5404\u884c\u653f\u533a\u623f\u79df\u73af\u6bd4\u53d8\u5316",
+            "target": "blank",
+            "subtext": "\u7eff\u8272\u8868\u793a\u4e0a\u6da8\uff0c\u7ea2\u8272\u8868\u793a\u4e0b\u964d",
+            "subtarget": "blank",
+            "left": "3%",
+            "top": "3%",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1F2937",
+                "fontSize": 18,
+                "richInheritPlainLabel": true
+            },
+            "subtextStyle": {
+                "color": "#94A3B8",
+                "fontSize": 11,
+                "richInheritPlainLabel": true
+            }
+        }
+    ]
+};
+        chart_fc64f1ec0c774deb891355a505a42e30.setOption(option_fc64f1ec0c774deb891355a505a42e30);
+    </script>
+<br/>                <div id="bc14e13bd666481689373d55ca1985c2" class="chart-container" style="width:900px; height:500px; "></div>
+    <script>
+        var chart_bc14e13bd666481689373d55ca1985c2 = echarts.init(
+            document.getElementById('bc14e13bd666481689373d55ca1985c2'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_bc14e13bd666481689373d55ca1985c2 = {
+    "backgroundColor": "#FFFFFF",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u884c\u653f\u533a\u6570\u91cf",
+            "colorBy": "data",
+            "legendHoverLink": true,
+            "selectedMode": false,
+            "selectedOffset": 10,
+            "clockwise": true,
+            "startAngle": 90,
+            "minAngle": 0,
+            "minShowLabelAngle": 0,
+            "avoidLabelOverlap": true,
+            "stillShowZeroSum": true,
+            "percentPrecision": 2,
+            "showEmptyCircle": true,
+            "emptyCircleStyle": {
+                "color": "lightgray",
+                "borderColor": "#000",
+                "borderWidth": 0,
+                "borderType": "solid",
+                "borderDashOffset": 0,
+                "borderCap": "butt",
+                "borderJoin": "bevel",
+                "borderMiterLimit": 10,
+                "opacity": 1
+            },
+            "data": [
+                {
+                    "name": "\u4f4e\u79df\u91d1\u533a",
+                    "value": 5
+                },
+                {
+                    "name": "\u4e2d\u79df\u91d1\u533a",
+                    "value": 5
+                },
+                {
+                    "name": "\u9ad8\u79df\u91d1\u533a",
+                    "value": 5
+                }
+            ],
+            "radius": [
+                "38%",
+                "68%"
+            ],
+            "center": [
+                "50%",
+                "57%"
+            ],
+            "label": {
+                "show": true,
+                "margin": 8,
+                "formatter": "{b}\n{c}\u4e2a  {d}%",
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "labelLine": {
+                "show": true,
+                "showAbove": false,
+                "length": 15,
+                "length2": 15,
+                "smooth": false,
+                "minTurnAngle": 90,
+                "maxSurfaceAngle": 90
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u4f4e\u79df\u91d1\u533a",
+                "\u4e2d\u79df\u91d1\u533a",
+                "\u9ad8\u79df\u91d1\u533a"
+            ],
+            "selected": {},
+            "show": true,
+            "top": "13%",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "color": [
+        "#14B8A6",
+        "#3B82F6",
+        "#EF6C78"
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5317\u4eac\u884c\u653f\u533a\u79df\u91d1\u68af\u5ea6\u5206\u5e03",
+            "target": "blank",
+            "subtext": "\u6309\u7167\u884c\u653f\u533a\u5e73\u5747\u623f\u79df\u4e09\u5206\u4f4d\u6570\u5212\u5206",
+            "subtarget": "blank",
+            "left": "3%",
+            "top": "3%",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1F2937",
+                "fontSize": 18,
+                "richInheritPlainLabel": true
+            },
+            "subtextStyle": {
+                "color": "#94A3B8",
+                "fontSize": 11,
+                "richInheritPlainLabel": true
+            }
+        }
+    ]
+};
+        chart_bc14e13bd666481689373d55ca1985c2.setOption(option_bc14e13bd666481689373d55ca1985c2);
+    </script>
+<br/>    </div>
+    <script>
+    </script>
+<script>window.addEventListener('load',function(){var container=document.getElementById('analysis-container'),notes=["<aside class=\"conclusion-card\"><div class=\"number\">01</div><h3>分析结论<span>Analysis Conclusion</span></h3><div class=\"cn-title\">区域价差明显</div><p>西城区平均房租最高，为 141.93 元/月/㎡；延庆区最低，为 20.81 元/月/㎡。最高值约为最低值的 6.82 倍。</p><div class=\"line\"></div><div class=\"en-title\">选房建议</div><p>预算有限时可优先比较低租金行政区及地铁沿线房源，并把通勤成本纳入判断。</p></aside>", "<aside class=\"conclusion-card\"><div class=\"number\">02</div><h3>分析结论<span>Analysis Conclusion</span></h3><div class=\"cn-title\">短期变化</div><p>门头沟区涨幅最高，为 +5.00%；延庆区变化最低，为 -4.19%。</p><div class=\"line\"></div><div class=\"en-title\">分析提示</div><p>单月涨跌可能受到样本结构影响，不应直接视为长期趋势。</p></aside>", "<aside class=\"conclusion-card\"><div class=\"number\">03</div><h3>分析结论<span>Analysis Conclusion</span></h3><div class=\"cn-title\">租金梯度</div><p>按照行政区平均房租的三分位数划分低、中、高三个相对梯度。</p><div class=\"line\"></div><div class=\"en-title\">使用说明</div><p>梯度用于区域初筛，不是固定预算线，实际选房还需结合面积和通勤距离。</p></aside>"],charts=Array.from(document.querySelectorAll('.chart-container'));charts.forEach(function(chart,index){var row=document.createElement('section');row.className='analysis-row';var card=document.createElement('div');card.className='chart-card';container.appendChild(row);row.appendChild(card);card.appendChild(chart);var holder=document.createElement('div');holder.innerHTML=notes[index]||'';if(holder.firstElementChild)row.appendChild(holder.firstElementChild);var instance=echarts.getInstanceByDom(chart);if(instance)setTimeout(function(){instance.resize();},60);});container.insertAdjacentHTML('afterend',"<section class=\"final-section\"><div class=\"final-title\"><h2>北京租房区域建议</h2><p>RENTAL AREA RECOMMENDATIONS</p></div><div class=\"recommend-list\"><article class=\"recommend-card premium\"><b>品质优先</b><h3>西城区</h3><strong>141.93 元/月/㎡</strong><p>适合预算较充足、优先考虑中心区位与生活资源的人群。</p></article><article class=\"recommend-card balanced\"><b>均衡选择</b><h3>大兴区</h3><strong>62.29 元/月/㎡</strong><p>可作为价格与通勤平衡的区域参考，仍需结合具体工作地点判断。</p></article><article class=\"recommend-card budget\"><b>预算优先</b><h3>延庆区</h3><strong>20.81 元/月/㎡</strong><p>适合预算敏感或能够接受较长通勤距离的人群。</p></article></div><div class=\"final-summary\"><h3>最终总结</h3><p>北京各行政区平均房租呈现明显梯度。当前数据只适合行政区初筛，最终选房仍需结合实际房源、租住面积和通勤时间。</p></div></section><footer>北京各行政区房租分析 ｜ 2026年7月 ｜ 数据来源：中国房价行情网</footer>");});</script></body>
+</html>
